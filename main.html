@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ムダゼロ - 公式完全攻略ガイド</title>
+    <style>
+        :root {
+            --primary: #1B1464;
+            --accent: #F0932B;
+            --secondary: #2C2C54;
+            --text: #333;
+            --light-bg: #f8f9fa;
+            --border: #e0e0e0;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background-color: var(--light-bg);
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* サイドバーとメインコンテンツのレイアウト */
+        .wrapper {
+            display: flex;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* サイドナビゲーション */
+        .sidebar {
+            width: 250px;
+            background: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid var(--border);
+            box-sizing: border-box;
+        }
+        .sidebar h3 { margin-top: 0; color: var(--primary); }
+        .sidebar ul { list-style: none; padding: 0; }
+        .sidebar li { margin-bottom: 10px; }
+        .sidebar a {
+            text-decoration: none;
+            color: #555;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+        .sidebar a:hover { background-color: #f0f0f0; color: var(--primary); }
+
+        /* メインコンテンツ */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background: white;
+        }
+
+        /* ヘッダー */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        header p { margin-top: 10px; opacity: 0.9; }
+
+        /* 見出し */
+        h2 {
+            margin-top: 50px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        h3 {
+            margin-top: 30px;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            color: var(--secondary);
+        }
+        h4 { margin-top: 20px; color: #444; }
+
+        /* テーブル */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+        th { background-color: var(--primary); color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* 装飾ボックス */
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .warning-box {
+            background-color: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .game-box {
+            background-color: #2C2C54;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid var(--accent);
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .wrapper { flex-direction: column; }
+            .sidebar { 
+                width: 100%; 
+                height: auto; 
+                position: relative; 
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            .main-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ムダゼロ</h1>
+    <p>時間を「力」に変えるRPG型習慣化アプリ<br>公式完全攻略ガイド (Ver 2.0)</p>
+</header>
+
+<div class="wrapper">
+    <nav class="sidebar">
+        <h3>目次</h3>
+        <ul>
+            <li><a href="#intro">1. はじめに</a></li>
+            <li><a href="#rpg-system">2. RPGシステム詳細</a></li>
+            <li><a href="#record">3. 記録と計測</a></li>
+            <li><a href="#social">4. リーグとソーシャル</a></li>
+            <li><a href="#battle">5. パズルバトル攻略</a></li>
+            <li><a href="#shop">6. ショップ・アイテム</a></li>
+            <li><a href="#lock">7. スマホ依存防止機能</a></li>
+            <li><a href="#ai">8. AI分析</a></li>
+            <li><a href="#account">9. アカウント・設定</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+
+        <section id="intro">
+            <h2>1. はじめに</h2>
+            <p>「ムダゼロ」は、あなたの時間の使い方をRPGのパラメータに直結させるアプリです。<br>
+            勉強や自己研鑽の時間は「経験値」となり、無駄な時間は「ダメージ」となります。</p>
+            <div class="info-box">
+                <strong>基本サイクル：</strong><br>
+                1. 時間を記録する → 2. キャラが成長する → 3. コインで装備を整える → 4. モンスターを倒す
+            </div>
+        </section>
+
+        <section id="rpg-system">
+            <h2>2. RPGシステム詳細</h2>
+            <p>あなたの分身となるアバターには、Lv、EXP、HP、装備が存在します。</p>
+
+            <h3>ステータスの変動ルール</h3>
+            <table>
+                <tr>
+                    <th>行動</th>
+                    <th>効果</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td><b>良い活動</b><br>(勉強、運動など)</td>
+                    <td>EXP獲得<br>コイン獲得</td>
+                    <td>1分につき <b>5 EXP</b> を獲得。<br>コインは記録時間に応じて付与。</td>
+                </tr>
+                <tr>
+                    <td><b>無駄な時間</b></td>
+                    <td>HP減少<br>コイン没収</td>
+                    <td>記録した時間（分）だけ <b>HPが減少</b> します。<br>さらにペナルティとしてコインも減少します。</td>
+                </tr>
+                <tr>
+                    <td><b>レベルアップ</b></td>
+                    <td>HP全回復</td>
+                    <td>必要EXP（現在のLv × 100）に達するとレベルアップします。<br>最大HPが +10 されます。</td>
+                </tr>
+            </table>
+
+            <div class="warning-box">
+                <strong>💀 死亡ペナルティ（HP 0）</strong><br>
+                無駄な時間を過ごしすぎてHPが0になると、以下のペナルティが発生します。<br>
+                <ul>
+                    <li>Lv > 1 の場合：<b>レベルが1下がり</b>、EXPが0になります。</li>
+                    <li>Lv = 1 の場合：EXPが0になります。</li>
+                </ul>
+            </div>
+
+            <h3>鍛冶屋ボーナス</h3>
+            <p>「集中して勉強」など、良い活動を一度に長く続けると、装備中の武器が強化されます。</p>
+            <ul>
+                <li><b>25分継続ごと</b>に、武器の攻撃力が <b>+1</b> 永続アップします。</li>
+            </ul>
+        </section>
+
+        <section id="record">
+            <h2>3. 記録と計測</h2>
+            
+            <h3>計測モード</h3>
+            <ul>
+                <li><b>ストップウォッチ：</b> 時間をカウントアップします。一時停止も可能です。</li>
+                <li><b>ポモドーロモード：</b> 25分間のカウントダウンです。終了時に自動保存され、休憩を促します。</li>
+            </ul>
+
+            <h3>おかえりボーナス</h3>
+            <p>「無駄な時間」の記録終了後、<b>15分〜60分以内</b>に次の「良い活動」を開始すると発生します。</p>
+            <ul>
+                <li>獲得スコア倍率： <b>×1.5倍</b></li>
+                <li>ダラダラ時間を素早く切り替えたことへの報酬です。</li>
+            </ul>
+
+            <h3>手動入力と予定</h3>
+            <p>「予定」を作成すると、開始時刻の5分前に通知が届きます。未来の行動を予約することで実行率を高めます。</p>
+        </section>
+
+        <section id="social">
+            <h2>4. リーグとソーシャル</h2>
+
+            <h3>リーグシステム（ランク戦）</h3>
+            <p>毎週月曜日にリセットされ、1週間の「積み上げスコア」で順位を競います。</p>
+            <table>
+                <tr>
+                    <th>リーグ階級</th>
+                    <th>昇格・降格条件</th>
+                </tr>
+                <tr>
+                    <td><b>Diamond</b> 💎</td>
+                    <td>最高ランク。猛者たちが集う場所。</td>
+                </tr>
+                <tr>
+                    <td><b>Platinum</b></td>
+                    <td>上位3位以内でDiamondへ昇格。</td>
+                </tr>
+                <tr>
+                    <td><b>Gold</b></td>
+                    <td>上位3位以内で昇格。下位15位で降格。</td>
+                </tr>
+                <tr>
+                    <td><b>Silver</b></td>
+                    <td>上位3位以内で昇格。下位15位で降格。</td>
+                </tr>
+                <tr>
+                    <td><b>Bronze</b></td>
+                    <td>初期ランク。上位3位以内でSilverへ昇格。</td>
+                </tr>
+            </table>
+            <p class="small">※参加人数やグループ分けにより、条件は微調整される場合があります。</p>
+
+            <h3>グループ機能</h3>
+            <ul>
+                <li><b>作成・参加：</b> 自分でグループを作るか、IDを入力して参加できます。</li>
+                <li><b>チャット：</b> メンバー限定のチャットルームで励まし合えます。</li>
+                <li><b>リアルタイム監視：</b> メンバーが「勉強中」かどうかが一覧でわかります。</li>
+                <li><b>学習時間ランキング：</b> グループ内だけのランキングが表示されます。</li>
+            </ul>
+        </section>
+
+        <section id="battle">
+            <h2>5. パズルバトル攻略</h2>
+            <div class="game-box">
+                <p>1日5回まで挑戦できる「3マッチパズル」形式のバトルです。<br>
+                同じ種類のタイルを3つ以上なぞって繋げて消します。</p>
+            </div>
+
+            <h3>タイルの効果</h3>
+            <ul>
+                <li>⚔️ <b>剣 (Sword)：</b> 敵にダメージを与えます（倍率1.5倍）。</li>
+                <li>💖 <b>ハート (Heart)：</b> HPを回復しつつ攻撃します。</li>
+                <li>💰 <b>コイン (Coin)：</b> 獲得スコアが2倍になり、攻撃します。</li>
+                <li>✨ <b>魔法 (Magic)：</b> MPを回復しつつ攻撃します。</li>
+            </ul>
+
+            <h3>ダメージ計算式（概算）</h3>
+            <p><code>ダメージ = (武器攻撃力 × 消した数 × コンボ倍率)</code></p>
+            <p>※ 一度に多く繋げるほど、コンボ倍率がかかり大ダメージを与えられます。</p>
+
+            <h3>魔法の発動</h3>
+            <p>MPが溜まっていれば、画面下のボタンから魔法を発動できます。<br>
+            魔法は「ショップ」で購入し、「装備変更」でセットする必要があります。</p>
+            <ul>
+                <li><b>攻撃魔法：</b> MP消費。敵に固定大ダメージ。</li>
+                <li><b>回復魔法：</b> MP消費。HPを大幅回復。</li>
+                <li><b>全消し魔法(Wipe)：</b> MP消費。盤面をリセットし、敵に超絶ダメージ。</li>
+            </ul>
+        </section>
+
+        <section id="shop">
+            <h2>6. ショップ・アイテム</h2>
+            <p>貯めたコインはメニューの「ショップ」で使用します。</p>
+
+            <h3>商品カテゴリ</h3>
+            <ul>
+                <li><b>武器：</b> パズルバトルでの基本攻撃力が上がります。</li>
+                <li><b>魔法書：</b> 新しい魔法スキルを習得します。</li>
+                <li><b>強化書：</b> 習得済みの魔法の威力や回復量を強化します。</li>
+                <li><b>ポーション：</b> HPを即座に回復します。</li>
+                <li><b>スキン/テーマ：</b> アプリの見た目やアイコンを変更します。</li>
+            </ul>
+
+            <h3>ガチャ（運試し）</h3>
+            <ul>
+                <li><b>コインガチャ：</b> コインを消費して、コインが当たります（増えるか減るかのギャンブル）。</li>
+                <li><b>アイテムガチャ：</b> ランダムなアイテム（高価な武器やブーストアイテム）が当たります。</li>
+            </ul>
+
+            <h3>ブーストアイテム</h3>
+            <p>これらは購入後、「インベントリ」から使用します。</p>
+            <ul>
+                <li><b>スコア2倍：</b> 次回の記録時の獲得スコアが2倍になります。</li>
+                <li><b>無駄許容延長：</b> 今日の「無駄な時間」の目標時間を延長します。</li>
+            </ul>
+        </section>
+
+        <section id="lock">
+            <h2>7. スマホ依存防止機能</h2>
+            
+            <h3>強制ロック画面 (Advanced Friction Screen)</h3>
+            <p>設定した「無駄な時間」の許容量を超えた状態でアプリを起動すると、強制的にロック画面が表示されます。<br>
+            解除するには計算問題を解く必要があります。</p>
+
+            <h3>設定と難易度</h3>
+            <p>設定メニューの「ロック画面の厳しさ」で変更可能です。</p>
+            <table>
+                <tr>
+                    <th>設定</th>
+                    <th>難易度Lv</th>
+                    <th>問題内容</th>
+                </tr>
+                <tr>
+                    <td><b>弱 (Weak)</b></td>
+                    <td>Lv 1-2</td>
+                    <td>2桁の足し算・引き算。<br>60分以上経過で3桁計算へ。</td>
+                </tr>
+                <tr>
+                    <td><b>中 (Medium)</b></td>
+                    <td>Lv 2-4</td>
+                    <td>掛け算が登場します。<br>90分以上で複合計算「(A+B)×C」などが出題。</td>
+                </tr>
+                <tr>
+                    <td><b>強 (Strong)</b></td>
+                    <td>Lv 3-5</td>
+                    <td>最初から掛け算・引き算。<br>60分以上で<b>「(A+B)÷C」などの複雑な計算</b>へ。<br>解くのが面倒でスマホを置きたくなるレベルです。</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="ai">
+            <h2>8. AI分析</h2>
+            <p>ホーム画面の「AIに分析してもらう」ボタンを押すと、Googleの生成AI（Gemini）があなたの記録データを読み込みます。</p>
+            <ul>
+                <li><b>分析対象：</b> 直近30件の「無駄な時間」の記録（時間帯、理由、長さ）。</li>
+                <li><b>アウトプット：</b> あなたのサボり癖の傾向（例：「夜22時以降にスマホでダラダラする傾向があります」）と、具体的な対策アドバイス。</li>
+            </ul>
+            <p>※分析結果は履歴として保存され、いつでも見返すことができます。</p>
+        </section>
+
+        <section id="account">
+            <h2>9. アカウント・設定</h2>
+            
+            <h3>プロフィールの公開設定</h3>
+            <p>「設定」から記録の公開/非公開を切り替えられます。</p>
+            <ul>
+                <li><b>公開：</b> タイムラインやランキングに表示されます。</li>
+                <li><b>非公開：</b> 自分だけが見られます。ランキングには参加できません。</li>
+            </ul>
+
+            <h3>データの管理</h3>
+            <p>「データ管理」メニューから、カテゴリの追加・色変更、教材データの編集・削除が行えます。</p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    <p>&copy; 2024 ムダゼロ Project. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // スムーズスクロール用スクリプト
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
